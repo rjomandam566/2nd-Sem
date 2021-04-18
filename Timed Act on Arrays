@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+    int arrayData[3][2] ={  // Accounts inside 2D Array
+        {1110, 5555},
+        {4523, 4567},
+        {5656, 6543}
+    };
+
+
+    int idNum, PIN, idNumChecker, PINChecker;
+
+        printf("\nEnter ID Number: "); // input ID number
+        idNumChecker = scanf("%d", &idNum);
+
+
+
+        printf("Enter PIN: "); // input Pin
+        PINChecker = scanf("%d", &PIN);
+
+
+                //checks whether the inputted data is valid or invalid
+    if (idNumChecker && PINChecker && 
+        idNum == arrayData [0][0] && PIN == arrayData [0][1] || 
+        idNum == arrayData [1][0] && PIN == arrayData [1][1] || 
+        idNum == arrayData [2][0] && PIN == arrayData [2][1]
+        )
+        
+        {  
+        printf("\nYou have successfully logged in  \n");
+        printf("ID#:%d \n", idNum);
+        return 0;
+
+
+    }else{
+
+        
+        printf("\nInvalid ID/PIN!  \n");
+        return 0;
+    }
+}
