@@ -1,0 +1,38 @@
+#include <stdio.h>
+
+int main ()
+{
+  FILE * folder;
+  int a,b;
+  char str[100], fname[20], str1;
+
+  
+	printf(" Input the file location : ");
+	scanf("%s",fname);		
+   
+    folder = fopen(fname, "a"); 
+    printf(" Input number of lines to be appended : ");
+    scanf("%d", &b);
+    printf(" The lines are : \n");  
+   
+    for(a = 0; a < b+1;a++)
+    {
+    fgets(str, sizeof str, stdin);
+    fputs(str, folder);
+  }
+  
+  fclose (folder);
+// Read the file after appended 
+	folder = fopen (fname, "r");  
+	printf("\n Inside of the %s is: ",fname);
+	str1 = fgetc(folder);
+	while (str1 != EOF)
+		{
+			printf ("%c", str1);
+			str1 = fgetc(folder);
+		}
+    printf("\n\n");
+    fclose (folder);
+
+  return 0;
+} 
