@@ -5,7 +5,7 @@
 int main()
 {
     
-    //
+    // https://github.com/rjomandam566/2nd-Sem/blob/main/M3FT
     
     char normalString[100], reversedString[100];
     int length, i, index, wordStart, wordEnd;
