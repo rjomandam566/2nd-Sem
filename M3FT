@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX_SIZE 100 // Max string size
+
+int main()
+{
+    
+    //
+    
+    char normalString[100], reversedString[100];
+    int length, i, index, wordStart, wordEnd;
+
+    printf("Enter any string: ");
+    gets(normalString);
+
+    length = strlen(normalString); //strlen = used to calculate the length of a string.
+    index = 0;
+
+    //Start checking of words from the end of string
+    wordStart = length - 1;
+    wordEnd   = length - 1;
+
+    while(wordStart > 0)
+    {
+        // If a word is found
+        if(normalString[wordStart] == ' ')
+        {
+            // Add the word to the reverse string
+            i = wordStart + 1;
+            while(i <= wordEnd)
+            {
+                reversedString[index] = normalString[i];
+
+                i++;
+                index++;
+            }
+            reversedString[index++] = ' ';
+
+            wordEnd = wordStart - 1;
+        }
+
+        wordStart--;
+    }
+
+    // Add the last word
+    for(i=0; i<=wordEnd; i++)
+    {
+        reversedString[index] = normalString[i];
+        index++;
+    }
+
+    // Add NULL character at the end of reverse string
+    reversedString[index] = '\0'; //    '\0' = NULL character
+
+    printf("Reverse ordered words \n%s", reversedString);
+
+    return 0;
+}
